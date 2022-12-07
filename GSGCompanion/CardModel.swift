@@ -1,20 +1,15 @@
-//
 //  CardModel.swift
 //  GSGCompanion
-//
 //  Created by Sean Bartley on 12/6/22.
-//
 
 import SwiftUI
-
-struct CardModel: View {
 class Card: ObservableObject, Identifiable {
     let id = UUID().uuidString
     let cardNum: Int
     let artistName: String
     let imageName: String
     let jamStrategy: String
-  
+    
     
     init(cardNum: Int, artistName: String, imageName: String, jamStrategy: String) {
         self.cardNum = cardNum
@@ -23,14 +18,17 @@ class Card: ObservableObject, Identifiable {
         self.jamStrategy = jamStrategy
     }
 }
-
-
- class DeckModel: ObservableObject {
-    @Published var cardNum = [Int]()
-    @Published var artistName = [String]()
-    @Published var imagename = [String]()
-    @Published var jamStrategy = [String]()
-    @Published var cardDeck = [
+        class DeckModel: ObservableObject {
+            @Published var cardNum = [Int]()
+            @Published var artistName = [String]()
+            @Published var imagename = [String]()
+            @Published var jamStrategy = [String]()
+        }
+            
+struct CardModel: View {
+    
+    
+    @State var cards = [
         
         Card(cardNum: 000,
              artistName: "Golden Shrimp Guild",
@@ -362,64 +360,54 @@ class Card: ObservableObject, Identifiable {
              imageName: "neonhausCard",
              jamStrategy: "Play the tuning knob.")
     ]
-}
-  
-       
-        var body: some View {
-            @State var cards: [Deck] = []
-
-            NavigationView {
-                List{
-                    @ObservedObject var cardz = Card(cardNum: "", artistName: "", imageName: "", jamStrategy: "")
-                    ForEach(cards) { card in
-                        HStack() {
-                            VStack() {
-                                Image(card.imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 45, height: 60)
-                                Text("Card#\(card.cardNum)")
-                                    .foregroundColor(.gray)
-                                    .font(.caption)
-                            }
-                            VStackLayout(alignment: .leading) {
-                                Text(card.artistName)
-                                    .font(.custom("Revalia", size: 18))
-                                    .multilineTextAlignment(.center)
-                                    .padding(.leading)
-                                
-                                Text(card.jamStrategy)
-                                    .foregroundColor(.gray)
-                                    .font(.caption)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.top, -3.0)
-                                    .padding(.leading)
-                                Spacer()
-                            }
+    var body: some View {
+        NavigationView {
+            List{
+                ForEach(cards) { card in
+                    HStack() {
+                        VStack() {
+                            Image(card.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45, height: 60)
+                            Text("Card#\(card.cardNum)")
+                                .foregroundColor(.gray)
+                                .font(.caption)
                         }
-                        .padding(.vertical, 10)
-                        
+                        VStackLayout(alignment: .leading) {
+                            Text(card.artistName)
+                                .font(.custom("Revalia", size: 18))
+                                .multilineTextAlignment(.center)
+                                .padding(.leading)
+                            
+                            Text(card.jamStrategy)
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, -3.0)
+                                .padding(.leading)
+                            Spacer()
+                        }
                     }
-                    
-                    
-                }
-                .listStyle(InsetGroupedListStyle())
-                .navigationTitle("Jam Strategy Cards")
-                .font(.custom("Revalia", size: 30))
-                
-                .scrollContentBackground(.hidden)
-                .background {
-                    Color.brown
-                    //Image("bg")
-                    // .resizable()
-                        .ignoresSafeArea()
+                    .padding(.vertical, 10)
                 }
             }
-            
-            
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Jam Strategy Cards")
+            .font(.custom("Revalia", size: 30))
+            .scrollContentBackground(.hidden)
+            .background {
+                Color.brown
+                //Image("bg")
+                // .resizable()
+                    .ignoresSafeArea()
+            }
         }
+        
+        
     }
-    Array
+    
+}
     struct CardModel_Previews: PreviewProvider {
         static var previews: some View {
             CardModel()
