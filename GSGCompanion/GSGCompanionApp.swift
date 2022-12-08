@@ -11,7 +11,22 @@ import SwiftUI
 struct GSGCompanionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                
+                ContentView()
+                    .tabItem {
+                        Label("Card List", systemImage: "bird")
+            }
+                DeckView(deckViewModel: DeckViewModel())
+                    .tabItem {
+                        Label("Game Deck", systemImage: "house")
+            }
+                WebView()
+                    .tabItem {
+                        Label("gsg.live", systemImage: "tree")
+            }
+            }
+            
         }
     }
 }
