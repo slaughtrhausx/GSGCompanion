@@ -8,23 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		331FBF102941CDF900D84B4D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331FBF0F2941CDF900D84B4D /* WebView.swift */; };
+		3369988F29451ED400B1B3F9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369988E29451ED400B1B3F9 /* CardView.swift */; };
+		33BE0AAD2943D48E009CC435 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE0AAC2943D48E009CC435 /* ViewModel.swift */; };
+		33BE0AAF2943DA5E009CC435 /* GameDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE0AAE2943DA5E009CC435 /* GameDeckView.swift */; };
+		33BE0AB12943F63D009CC435 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BE0AB02943F63D009CC435 /* CardListView.swift */; };
 		33DB4BC1294000C6007A1DDA /* GSGCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB4BC0294000C6007A1DDA /* GSGCompanionApp.swift */; };
 		33DB4BC3294000C6007A1DDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB4BC2294000C6007A1DDA /* ContentView.swift */; };
 		33DB4BC5294000C9007A1DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DB4BC4294000C9007A1DDA /* Assets.xcassets */; };
 		33DB4BC9294000C9007A1DDA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DB4BC8294000C9007A1DDA /* Preview Assets.xcassets */; };
-		33DB4BD029400144007A1DDA /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB4BCF29400144007A1DDA /* CardModel.swift */; };
+		33DB4BD029400144007A1DDA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB4BCF29400144007A1DDA /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		331FBF0F2941CDF900D84B4D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		331FBF132941D48D00D84B4D /* Revalia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Revalia.ttf; sourceTree = "<group>"; };
+		3369988E29451ED400B1B3F9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		33BE0AAC2943D48E009CC435 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		33BE0AAE2943DA5E009CC435 /* GameDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDeckView.swift; sourceTree = "<group>"; };
+		33BE0AB02943F63D009CC435 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		33DB4BBD294000C6007A1DDA /* GSGCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSGCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DB4BC0294000C6007A1DDA /* GSGCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSGCompanionApp.swift; sourceTree = "<group>"; };
 		33DB4BC2294000C6007A1DDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		33DB4BC4294000C9007A1DDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33DB4BC6294000C9007A1DDA /* GSGCompanion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GSGCompanion.entitlements; sourceTree = "<group>"; };
 		33DB4BC8294000C9007A1DDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		33DB4BCF29400144007A1DDA /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		33DB4BCF29400144007A1DDA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		33DB4BD4294011F4007A1DDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,9 +68,13 @@
 			children = (
 				33DB4BD4294011F4007A1DDA /* Info.plist */,
 				33DB4BC0294000C6007A1DDA /* GSGCompanionApp.swift */,
-				331FBF0F2941CDF900D84B4D /* WebView.swift */,
 				33DB4BC2294000C6007A1DDA /* ContentView.swift */,
-				33DB4BCF29400144007A1DDA /* CardModel.swift */,
+				33BE0AB02943F63D009CC435 /* CardListView.swift */,
+				33BE0AAE2943DA5E009CC435 /* GameDeckView.swift */,
+				3369988E29451ED400B1B3F9 /* CardView.swift */,
+				331FBF0F2941CDF900D84B4D /* WebView.swift */,
+				33DB4BCF29400144007A1DDA /* Model.swift */,
+				33BE0AAC2943D48E009CC435 /* ViewModel.swift */,
 				33DB4BC4294000C9007A1DDA /* Assets.xcassets */,
 				33DB4BD3294011B8007A1DDA /* Fonts */,
 				33DB4BC6294000C9007A1DDA /* GSGCompanion.entitlements */,
@@ -159,8 +171,12 @@
 			files = (
 				33DB4BC3294000C6007A1DDA /* ContentView.swift in Sources */,
 				331FBF102941CDF900D84B4D /* WebView.swift in Sources */,
+				33BE0AAD2943D48E009CC435 /* ViewModel.swift in Sources */,
 				33DB4BC1294000C6007A1DDA /* GSGCompanionApp.swift in Sources */,
-				33DB4BD029400144007A1DDA /* CardModel.swift in Sources */,
+				33DB4BD029400144007A1DDA /* Model.swift in Sources */,
+				33BE0AB12943F63D009CC435 /* CardListView.swift in Sources */,
+				3369988F29451ED400B1B3F9 /* CardView.swift in Sources */,
+				33BE0AAF2943DA5E009CC435 /* GameDeckView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

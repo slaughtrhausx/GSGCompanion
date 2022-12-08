@@ -16,9 +16,8 @@ extension UIWindow {
         if motion == .motionShake {
             NotificationCenter.default.post(name: UIDevice.deviceDidShakeNotification, object: nil)
         }
-     }
+    }
 }
-
 
 struct DeviceShakeViewModifier: ViewModifier {
     let action: () -> Void
@@ -32,128 +31,38 @@ struct DeviceShakeViewModifier: ViewModifier {
     }
 }
 
-
 extension View {
     func onShake(perform action: @escaping () -> Void) -> some View {
         self.modifier(DeviceShakeViewModifier(action: action))
     }
 }
 
-
-
 struct ContentView: View {
-    @StateObject var deckViewModel: DeckViewModel = DeckViewModel()
     
+    @State private var showLoading: Bool = false
     
     var body: some View {
-        NavigationView {
-            List{
-                ForEach(deckViewModel.cardsArray) { card in
-                    HStack() {
-                        VStack() {
-                            Image(card.imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 45, height: 60)
-                            Text("Card#\(card.cardNum)")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                        }
-                        VStackLayout(alignment: .leading) {
-                            Text(card.artistName)
-                                .font(.custom("Revalia", size: 18))
-                                .multilineTextAlignment(.center)
-                                .padding(.leading)
-                            
-                            Text(card.jamStrategy)
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, -3.0)
-                                .padding(.leading)
-                            Spacer()
-                        }
-                    }
-                    .padding(.vertical, 10)
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Jam Strategy Cards")
-            //.font(.custom("Revalia", size: 30))
-            .scrollContentBackground(.hidden)
-            .background {
-               // Color.brown
-                Image("bg")
-                 .resizable()
-                    .ignoresSafeArea()
-            }
+        TabView {
+            
+            CardListView()
+                .tabItem {
+                    Label("Card List", systemImage: "bird")
         }
-        
-        
-    }
-    
-}
-struct DeckView: View {
-    @ObservedObject var deckViewModel: DeckViewModel
-    
-                                      
-    var body: some View {
-        ZStack {
-         Image("bg")
-                .resizable()
-                .ignoresSafeArea()
-            
-            
-            ForEach(deckViewModel.cardsArray) { card in
-               
-                    VStack() {
-                        
-                        Text(deckViewModel.cardsArray.first!.jamStrategy)
-                            .foregroundColor(.black)
-                            .font(.custom("Revalia", size: 28))
-                            .multilineTextAlignment(.center)
-
-    
-                        Image(deckViewModel.cardsArray.first!.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(25)
-                        Text(deckViewModel.cardsArray.first!.artistName)
-                            .foregroundColor(.yellow)
-                            .font(.custom("Revalia", size: 28))
-                            .multilineTextAlignment(.center)
-
-                            .onShake {
-                                deckViewModel.deckShuffle()
-                            }
-                            
-                            
-//                        }, label: {
-//                            ZStack {
-//                            Image("buttonImage")
-//                                .cornerRadius(15)
-//                                Text("Shuffle")
-//                                    .foregroundColor(.yellow)
-//                                    .font(.custom("Revalia", size: 22))
-//                            }
-//                        })
-
-                        Spacer()
-                    }
-                    .padding()
-                
-                }
-            
-           
+            DeckView(deckViewModel: DeckViewModel())
+                .tabItem {
+                    Label("Game Deck", systemImage: "house")
         }
-    }
-}
-
-
+            WebView(url:  URL(string: "https://gsg.live")!, showLoading: $showLoading)
+                          .overlay(showLoading ? ProgressView("Loading...").toAnyView():
+                                       EmptyView().toAnyView())
+                .tabItem {
+                    Label("gsg.live", systemImage: "tree")
+        }
+        }
+        }
+        }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DeckView(deckViewModel: DeckViewModel())
-        
-        //ContentView()
+        ContentView.init()
     }
 }

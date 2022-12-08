@@ -7,26 +7,26 @@
 
 import SwiftUI
 
+
+extension View {
+    func toAnyView() -> AnyView {
+        AnyView(self)
+    }
+}
+
 @main
 struct GSGCompanionApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            TabView {
-                
+            ZStack{
                 ContentView()
-                    .tabItem {
-                        Label("Card List", systemImage: "bird")
             }
-                DeckView(deckViewModel: DeckViewModel())
-                    .tabItem {
-                        Label("Game Deck", systemImage: "house")
-            }
-                WebView()
-                    .tabItem {
-                        Label("gsg.live", systemImage: "tree")
-            }
-            }
-            
         }
+    }
+}
+struct GSGCompanionApp_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView.init()
     }
 }
